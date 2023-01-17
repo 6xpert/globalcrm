@@ -34,10 +34,16 @@ class Welcome extends CI_Controller {
 		$user_info=$this->generic->LoginData($email, $pass);
 		//inicializing session
 		if($user_info){
-
+			$this->session->set_userdata('loginData',$user_info[0]);
+			$this->session->set_flashdata('logedin',1);
+			redirect(base_url('dashboard'));
 		}else{
 			$this->session->set_flashdata('error_msg', 1);
 			redirect(base_url());
+		
 		}
+	}
+	public function Dashboard(){
+		$this->load->view('dashboard');
 	}
 }
