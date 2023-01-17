@@ -1714,10 +1714,9 @@ Left Navigation Sidebar
 }
 
 .nav-left-sidebar .submenu {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 45px;
     /* margin-top: 5px; */
-    background: #24274a;
+    /* background: #24274a; */
 }
 
 .nav-left-sidebar .submenu .nav .nav-item .nav-link {

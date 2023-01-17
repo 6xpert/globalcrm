@@ -69,4 +69,43 @@ class Generic_model extends CI_Model
             return false;
         }
     }
+    function GetRepresenitnCountriesWithCountryName($where=false){
+        $this->db->select('*');
+        $this->db->from('representingCountries rc');
+        $this->db->join('countries c', 'rc.country_id=c.country_id');
+        if ($where) {
+            $this->db->where($where);
+        }
+        $q = $this->db->get();
+        //    die($this->db->last_query());
+        if ($q->num_rows() > 0) {
+            return $q->result_array();
+        } else {
+            return false;
+        }
+    }
+    function GetIntstitutsWithCountries($where=false,$like=false,$reverseorder=false,$limit=false,$start=false){
+        $this->db->select('*');
+        $this->db->from('universities uni');
+        $this->db->join('countries c', 'uni.repCountryID=c.country_id');
+        if ($where) {
+            $this->db->where($where);
+        }
+        if($reverseorder){
+            $this->db->order_by("uni.uni_id", "desc");
+        }
+        if($limit){
+            $this->db->limit($limit, $start);
+        }
+        if($like){
+            $this->db->like('uni.uni_name', $like);
+        }
+        $q = $this->db->get();
+        //    die($this->db->last_query());
+        if ($q->num_rows() > 0) {
+            return $q->result_array();
+        } else {
+            return false;
+        }
+    }
 }
