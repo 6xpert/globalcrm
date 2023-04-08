@@ -181,6 +181,8 @@ $route['add-new-application']='application/AddPersonalDetail';
 $route['add-personal-detail']='application/AddPersonalDetail';
 $route['add-new-application-data']='application/AddPersonalDetailData';
 $route['add-student-education']='application/AddStudentEducation'; //step 2
+$route['add-destination-country']='application/AddDestinationCountry';//ajax for destination
+$route['add-acadmic-history/:any']='application/AddAcadmicHistoryData';
 
 
 $route['default_controller'] = 'welcome';
